@@ -98,7 +98,7 @@ namespace SharpSecretsdump
             else
             {
                 Console.WriteLine("[-] Error parsing hashed bootkey");
-                return null;
+                return new byte[0];
             }
             return hashedBootKey;
         }

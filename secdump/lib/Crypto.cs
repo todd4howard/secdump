@@ -231,7 +231,7 @@ namespace SharpSecretsdump
         //from https://github.com/woanware/ForensicUserInfo/blob/master/Source/SamParser.cs
         private static byte[] DeObfuscateHashPart(byte[] obfuscatedHash, List<byte> key)
         {
-            DESCryptoServiceProvider cryptoProvider = new DESCryptoServiceProvider();
+            var cryptoProvider = DES.Create();
             cryptoProvider.Padding = PaddingMode.None;
             cryptoProvider.Mode = CipherMode.ECB;
             ICryptoTransform transform = cryptoProvider.CreateDecryptor(key.ToArray(), new byte[] { 0, 0, 0, 0, 0, 0, 0, 0 });
